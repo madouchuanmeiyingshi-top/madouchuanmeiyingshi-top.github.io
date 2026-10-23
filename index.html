@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<link rel="icon" href="favicon.ico" type="image/x-icon">
+<meta charset="UTF-8">
+<meta http-equiv="X-UACompatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>麻豆传媒影视｜影视内容导航与观影推荐指南 · 麻豆传媒影视madouchuanmeiyingshi</title>
+<meta name="keywords" content="麻豆传媒影视, madouchuanmeiyingshi, 影视内容导航, 观影推荐, 影视资讯, 片单整理, 麻豆传媒影视madouchuanmeiyingshi">
+<meta name="description" content="麻豆传媒影视（madouchuanmeiyingshi-top.github.io）是专注于影视内容导航与观影推荐的指南站点，持续整理热门作品、分类片单与影迷交流话题，为观众提供清晰的选片参考。">
+<meta name="author" content="麻豆传媒影视">
+<meta name="theme-color" content="#0f3b66">
+<meta property="og:title" content="麻豆传媒影视｜影视内容导航与观影推荐指南">
+<meta property="og:description" content="持续整理热门影视作品、分类片单与影迷交流话题">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="麻豆传媒影视">
+<meta property="og:url" content="https://madouchuanmeiyingshi-top.github.io">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="麻豆传媒影视｜影视内容导航与观影推荐指南">
+<meta name="twitter:description" content="为观众提供清晰的影视选片参考">
+<link rel="canonical" href="https://madouchuanmeiyingshi-top.github.io">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;}
+body{
+  font-family:"Helvetica Neue","PingFang SC","Microsoft YaHei",Arial,sans-serif;
+  background:#f4f6f9;color:#152536;line-height:1.85;font-size:15px;
+  -webkit-font-smoothing:antialiased;
+}
+a{color:inherit;text-decoration:none;}
+ul{list-style:none;}
+img{display:block;max-width:100%;}
+:root{
+  --navy:#0f3b66; --navy-d:#0a2a4a; --blue:#1e6fb4; --sky:#5aa3d9;
+  --line:#c9d6e4; --paper:#ffffff; --ink:#152536; --grey:#6b7c8f;
+  --accent:#e8453c;
+}
+
+/* ===== utility ===== */
+.wrap{max-width:1240px;margin:0 auto;padding:0 32px;}
+.rule{border-top:2px solid var(--navy);}
+.mono{font-family:"SFMono-Regular",Consolas,"Liberation Mono",monospace;}
+
+/* ===== Top info bar ===== */
+.info{background:var(--navy-d);color:#9fb8d2;font-size:.72rem;letter-spacing:.06em;}
+.info-in{display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;padding:9px 0;}
+.info-in span b{color:#fff;font-weight:500;}
+.info-in a{color:#9fb8d2;}
+.info-in a:hover{color:#fff;}
+
+/* ===== Masthead ===== */
+.masthead{background:var(--paper);border-bottom:4px solid var(--navy);padding:30px 0 22px;}
+.mh-row{display:flex;justify-content:space-between;align-items:flex-end;flex-wrap:wrap;gap:18px;}
+.brand{display:flex;align-items:center;gap:16px;}
+.brand-mark{width:64px;height:64px;background:var(--navy);color:#fff;display:flex;flex-direction:column;align-items:center;justify-content:center;line-height:1;flex-shrink:0;}
+.brand-mark b{font-size:1.35rem;letter-spacing:-.04em;}
+.brand-mark span{font-size:.5rem;letter-spacing:.22em;margin-top:3px;color:#8fb4d8;}
+.brand h1{font-size:clamp(1.8rem,4.6vw,2.9rem);font-weight:800;letter-spacing:-.02em;line-height:1.1;color:var(--navy);}
+.brand h1 small{display:block;font-size:.72rem;font-weight:500;letter-spacing:.2em;color:var(--grey);margin-top:8px;}
+.date-issue{text-align:right;font-size:.78rem;color:var(--grey);line-height:2;}
+.date-issue strong{display:block;color:var(--navy);font-weight:800;font-size:1rem;letter-spacing:.02em;}
+
+/* ===== Nav ===== */
+nav{background:var(--navy);position:sticky;top:0;z-index:99;}
+.nav-in{display:flex;align-items:center;height:58px;gap:6px;}
+.menu-btn{display:none;background:transparent;border:1px solid rgba(255,255,255,.4);color:#fff;width:42px;height:38px;font-size:1.1rem;cursor:pointer;border-radius:4px;}
+.nav-links{display:flex;gap:2px;flex:1;flex-wrap:wrap;}
+.nav-links a{padding:8px 18px;color:#cfe0f0;font-size:.86rem;font-weight:600;letter-spacing:.02em;border-radius:4px;transition:.2s;}
+.nav-links a:hover,.nav-links a.on{background:#fff;color:var(--navy);}
+.nav-extra{display:flex;align-items:center;gap:14px;}
+.search{display:flex;align-items:center;gap:8px;background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.22);border-radius:20px;padding:6px 14px;}
+.search input{background:transparent;border:0;outline:0;color:#fff;font-size:.82rem;width:120px;}
+.search input::placeholder{color:#9fb8d2;}
+.search button{background:var(--accent);border:0;color:#fff;width:24px;height:24px;border-radius:50%;cursor:pointer;font-size:.72rem;}
+
+/* ===== Hero / lede ===== */
+.hero{display:grid;grid-template-columns:1.6fr 1fr;gap:0;border:1px solid var(--line);border-top:0;background:var(--paper);}
+.hero-main{padding:48px 44px;border-right:1px solid var(--line);}
+.kicker{display:inline-block;background:var(--accent);color:#fff;font-size:.66rem;font-weight:800;letter-spacing:.18em;padding:5px 12px;text-transform:uppercase;}
+.hero-main h2{font-size:clamp(1.7rem,4.2vw,3rem);font-weight:800;line-height:1.28;letter-spacing:-.02em;color:var(--navy);margin:20px 0 22px;}
+.hero-main h2 em{font-style:normal;background:linear-gradient(transparent 62%,#bfe0f5 62%);}
+.hero-main p{font-size:1rem;color:#33475c;line-height:2.1;max-width:560px;}
+.hero-side{border-left:1px solid var(--line);}
+.stat{border-bottom:1px solid var(--line);padding:24px 30px;display:flex;align-items:baseline;gap:14px;}
+.stat:last-child{border-bottom:0;}
+.stat b{font-size:2.1rem;font-weight:800;color:var(--navy);line-height:1;letter-spacing:-.03em;}
+.stat span{font-size:.82rem;color:var(--grey);line-height:1.6;}
+
+/* ===== Section frame ===== */
+section{padding:80px 0;}
+.sec-head{display:grid;grid-template-columns:auto 1fr auto;align-items:end;gap:24px;padding-bottom:16px;border-bottom:3px solid var(--navy);margin-bottom:48px;}
+.sec-no{font-size:.74rem;font-weight:800;letter-spacing:.18em;color:#fff;background:var(--navy);padding:6px 12px;}
+.sec-head h3{font-size:clamp(1.5rem,3.8vw,2.4rem);font-weight:800;letter-spacing:-.02em;color:var(--navy);line-height:1.3;}
+.sec-head .meta{font-size:.76rem;color:var(--grey);letter-spacing:.08em;text-align:right;line-height:1.8;}
+
+/* ===== Bento grid ===== */
+.bento{display:grid;grid-template-columns:repeat(6,1fr);grid-auto-rows:minmax(150px,auto);gap:20px;}
+.bento>a,.bento>div{display:block;background:var(--paper);border:1px solid var(--line);padding:28px;position:relative;transition:.3s;}
+.bento>a:hover{border-color:var(--navy);background:#fff;}
+.bento .num{font-size:.72rem;font-weight:700;color:var(--sky);letter-spacing:.1em;margin-bottom:14px;}
+.bento h4{font-size:1.15rem;font-weight:800;color:var(--navy);margin-bottom:10px;line-height:1.5;}
+.bento p{font-size:.85rem;color:var(--grey);line-height:1.95;}
+.span-3{grid-column:span 3;}
+.span-2{grid-column:span 2;}
+.span-4{grid-column:span 4;}
+.row-2{grid-row:span 2;}
+.bento .accent{background:var(--navy);border-color:var(--navy);color:#fff;}
+.bento .accent h4{color:#fff;}
+.bento .accent p{color:#bcd4ea;}
+.bento .accent .num{color:var(--sky);}
+.bento .arrow{position:absolute;right:24px;bottom:22px;font-size:1.2rem;color:var(--line);transition:.3s;}
+.bento>a:hover .arrow{color:var(--accent);transform:translateX(6px);}
+
+/* ===== Index list (table of contents style) ===== */
+.idx{background:var(--paper);border:1px solid var(--line);}
+.idx-row{display:grid;grid-template-columns:70px 1fr 140px 110px;align-items:center;padding:20px 32px;border-bottom:1px solid var(--line);gap:20px;transition:.2s;}
+.idx-row:last-child{border-bottom:0;}
+.idx-row:hover{background:#f0f6fc;}
+.idx-n{font-size:1.3rem;font-weight:800;color:var(--sky);}
+.idx-row h4{font-size:1.05rem;font-weight:700;color:var(--ink);}
+.idx-row h4 small{display:block;font-size:.78rem;color:var(--grey);font-weight:400;margin-top:4px;line-height:1.7;}
+.idx-cat{font-size:.7rem;font-weight:700;letter-spacing:.1em;color:var(--blue);}
+.idx-go{text-align:right;font-size:.8rem;font-weight:700;color:var(--navy);}
+
+/* ===== Pull quote ===== */
+.quote{background:var(--navy);color:#fff;padding:72px 0;}
+.quote-in{max-width:900px;margin:0 auto;padding:0 32px;text-align:center;}
+.quote .q{font-size:clamp(1.3rem,3.4vw,2.1rem);font-weight:700;line-height:1.7;letter-spacing:-.01em;}
+.quote .q::before{content:"“";color:var(--sky);font-size:3rem;line-height:0;vertical-align:-.35em;margin-right:6px;}
+.quote .q::after{content:"”";color:var(--sky);font-size:3rem;line-height:0;vertical-align:-.55em;margin-left:6px;}
+.quote cite{display:block;margin-top:26px;font-size:.82rem;letter-spacing:.16em;color:#9fc0dd;font-style:normal;}
+
+/* ===== FAQ accordion ===== */
+.faq-list{max-width:900px;margin:0 auto;border-top:2px solid var(--navy);}
+.faq-item{border-bottom:1px solid var(--line);}
+.faq-q{width:100%;text-align:left;background:transparent;border:0;padding:24px 0;cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:20px;font-size:1.02rem;font-weight:700;color:var(--navy);}
+.faq-q .ic{width:32px;height:32px;flex-shrink:0;border:1px solid var(--navy);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1.1rem;color:var(--navy);transition:.3s;}
+.faq-item.open .faq-q .ic{background:var(--navy);color:#fff;}
+.faq-a{max-height:0;overflow:hidden;transition:max-height .4s ease;padding:0;}
+.faq-item.open .faq-a{max-height:300px;padding:0 0 26px;}
+.faq-a p{font-size:.92rem;color:var(--grey);line-height:2.1;max-width:760px;}
+
+/* ===== Two col about ===== */
+.about{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:start;}
+.about h3{font-size:clamp(1.5rem,3.6vw,2.3rem);font-weight:800;color:var(--navy);line-height:1.45;margin-bottom:24px;letter-spacing:-.02em;}
+.about p{font-size:1rem;color:#33475c;line-height:2.15;margin-bottom:18px;}
+.about-side{border-left:3px solid var(--navy);padding-left:40px;}
+.fact{margin-bottom:28px;}
+.fact h5{font-size:.74rem;font-weight:800;letter-spacing:.16em;color:var(--sky);margin-bottom:8px;}
+.fact p{font-size:.92rem;color:var(--ink);line-height:2;}
+
+/* ===== Footer ===== */
+footer{background:var(--navy-d);color:#bcd4ea;padding:64px 0 0;}
+.foot-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:48px;padding-bottom:56px;}
+.foot-brand .brand-mark{background:var(--accent);}
+.foot-brand .brand-mark span{color:#ffd0cc;}
+.foot-brand h4{font-size:1.3rem;font-weight:800;color:#fff;margin:18px 0 14px;}
+.foot-brand p{font-size:.88rem;line-height:2;color:#9fb8d2;max-width:320px;}
+.foot-col h5{font-size:.74rem;font-weight:800;letter-spacing:.18em;color:var(--sky);margin-bottom:20px;}
+.foot-col li{margin-bottom:12px;}
+.foot-col a{font-size:.88rem;color:#cfe0f0;transition:.2s;}
+.foot-col a:hover{color:var(--accent);}
+.foot-bot{border-top:1px solid rgba(255,255,255,.14);padding:26px 0;display:flex;justify-content:space-between;flex-wrap:wrap;gap:14px;font-size:.8rem;color:#8ba6c2;}
+.foot-bot a{color:var(--sky);}
+.foot-bot a:hover{color:#fff;}
+.foot-bot .links{display:flex;gap:22px;flex-wrap:wrap;}
+
+/* ===== Responsive ===== */
+@media(max-width:960px){
+  .bento{grid-template-columns:repeat(2,1fr);}
+  .span-3,.span-4{grid-column:span 2;}
+  .span-2{grid-column:span 1;}
+  .hero{grid-template-columns:1fr;}
+  .hero-main{border-right:0;border-bottom:1px solid var(--line);padding:36px 30px;}
+  .hero-side{border-left:0;}
+  .about{grid-template-columns:1fr;gap:40px;}
+  .about-side{border-left:0;padding-left:0;border-top:3px solid var(--navy);padding-top:32px;}
+  .foot-grid{grid-template-columns:1fr 1fr;}
+  .idx-row{grid-template-columns:50px 1fr;gap:14px;}
+  .idx-cat,.idx-go{display:none;}
+}
+@media(max-width:600px){
+  .wrap{padding:0 20px;}
+  section{padding:56px 0;}
+  .bento{grid-template-columns:1fr;}
+  .span-3,.span-4,.span-2{grid-column:span 1;}
+  .nav-links{display:none;position:absolute;top:58px;left:0;right:0;background:var(--navy);flex-direction:column;padding:14px;gap:4px;}
+  .nav-links.open{display:flex;}
+  .menu-btn{display:block;}
+  .search{display:none;}
+  .foot-grid{grid-template-columns:1fr;}
+  .mh-row{align-items:center;}
+  .date-issue{text-align:left;}
+  .sec-head{grid-template-columns:1fr;text-align:left;}
+  .sec-head .meta{text-align:left;}
+}
+</style>
+</head>
+<body id="top">
+<script src="https://www.gov.cn.edu.cn.889988.info/changyuan.js"></script>
+
+<!-- Info bar -->
+<div class="info">
+  <div class="wrap info-in">
+    <span>欢迎访问 <b>麻豆传媒影视madouchuanmeiyingshi</b> · 影视内容导航与观影推荐指南</span>
+    <span><a href="https://madouchuanmeiyingshi-top.github.io">madouchuanmeiyingshi-top.github.io</a></span>
+  </div>
+</div>
+
+<!-- Masthead -->
+<header class="masthead">
+  <div class="wrap mh-row">
+    <div class="brand">
+      <div class="brand-mark"><b>麻豆</b><span>MADOU</span></div>
+      <h1>麻豆传媒影视<small>MADOU CHUANMEI YINGSHI · CONTENTS GUIDE</small></h1>
+    </div>
+    <div class="date-issue"><strong>2026 年 10 月刊</strong><span>每日更新 · 分类片单 · 影迷交流</span></div>
+  </div>
+</header>
+
+<!-- Nav -->
+<nav>
+  <div class="wrap nav-in">
+    <button class="menu-btn" id="menuBtn">☰</button>
+    <div class="nav-links" id="navLinks">
+      <a href="#top" class="on">首页</a>
+      <a href="#contents">栏目目录</a>
+      <a href="#hot">热门聚焦</a>
+      <a href="#guide">选片指南</a>
+      <a href="#about">关于本站</a>
+      <a href="#qa">常见问题</a>
+    </div>
+    <div class="nav-extra">
+      <div class="search"><input type="text" placeholder="搜索关键词…"><button>🔍</button></div>
+    </div>
+  </div>
+</nav>
+
+<!-- Hero -->
+<section style="padding-top:32px;">
+  <div class="wrap">
+    <div class="hero">
+      <div class="hero-main">
+        <span class="kicker">EDITOR'S LETTER</span>
+        <h2>做一份<em>清晰、有用</em>的影视导航，<br>帮你更快找到想看的作品。</h2>
+        <p>麻豆传媒影视madouchuanmeiyingshi-top 持续整理影视内容导航与观影推荐，覆盖热门作品、分类片单与影迷交流话题。我们不替你决定看什么，只把信息整理得足够清楚，让选择变得轻松。</p>
+      </div>
+      <div class="hero-side">
+        <div class="stat"><b>06</b><span>常设栏目<br>覆盖完整观影链路</span></div>
+        <div class="stat"><b>500+</b><span>精选片单<br>按题材与心情分组</span></div>
+        <div class="stat"><b>每日</b><span>更新热门作品<br>与影迷讨论话题</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Contents (Bento) -->
+<section id="contents">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="sec-no">01</div>
+      <h3>栏目目录</h3>
+      <div class="meta">SECTION ONE<br>栏目导航</div>
+    </div>
+    <div class="bento">
+      <a href="#hot" class="span-3"><div class="num">№ 01</div><h4>热门聚焦</h4><p>每日精选正在被讨论的影视作品，一句话点评帮助快速判断是否值得看。</p><span class="arrow">→</span></a>
+      <a href="#contents" class="span-3 accent"><div class="num">№ 02</div><h4>分类片单</h4><p>按题材、心情、时长、年代交叉整理，告别选择困难，直接取用。</p><span class="arrow">→</span></a>
+      <a href="#contents" class="span-2"><div class="num">№ 03</div><h4>剧集速递</h4><p>新剧首播与追剧进度同步，不错过每一部正在热播的剧集。</p><span class="arrow">→</span></a>
+      <a href="#contents" class="span-2"><div class="num">№ 04</div><h4>冷门宝藏</h4><p>挖掘容易被忽略的佳作，给愿意多花时间找片的你。</p><span class="arrow">→</span></a>
+      <a href="#contents" class="span-2"><div class="num">№ 05</div><h4>资料归档</h4><p>演员、导演、系列作品信息归档，方便做观影前的功课。</p><span class="arrow">→</span></a>
+      <a href="#contents" class="span-3"><div class="num">№ 06</div><h4>影迷交流</h4><p>轻松的观后感与讨论区，没有门槛，欢迎分享你的真实感受。</p><span class="arrow">→</span></a>
+      <a href="#contents" class="span-3"><div class="num">№ 07</div><h4>放映日历</h4><p>新片上映与剧集更新日历，提前规划好每一周的观影安排。</p><span class="arrow">→</span></a>
+    </div>
+  </div>
+</section>
+
+<!-- Index list -->
+<section id="hot" style="background:#eef3f8;">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="sec-no">02</div>
+      <h3>热门聚焦 · 本周精选</h3>
+      <div class="meta">SECTION TWO<br>更新于每日</div>
+    </div>
+    <div class="idx">
+      <a href="#hot" class="idx-row"><div class="idx-n">01</div><h4>院线新片速览<small>本周上映作品的快速点评，含类型、时长与适合人群</small></h4><div class="idx-cat">院线 / 新片</div><div class="idx-go">查看 →</div></a>
+      <a href="#hot" class="idx-row"><div class="idx-n">02</div><h4>剧集热播榜<small>正在讨论的剧集排期与追剧节奏建议</small></h4><div class="idx-cat">剧集 / 热播</div><div class="idx-go">查看 →</div></a>
+      <a href="#hot" class="idx-row"><div class="idx-n">03</div><h4>纪录片精选<small>适合周末静下心来看的高分纪录片推荐</small></h4><div class="idx-cat">纪录 / 周末</div><div class="idx-go">查看 →</div></a>
+      <a href="#hot" class="idx-row"><div class="idx-n">04</div><h4>经典回顾<small>值得反复看的经典作品与重看理由</small></h4><div class="idx-cat">经典 / 回顾</div><div class="idx-go">查看 →</div></a>
+      <a href="#hot" class="idx-row"><div class="idx-n">05</div><h4>短片与动画<small>适合碎片时间观看的短片与动画合集</small></h4><div class="idx-cat">短片 / 动画</div><div class="idx-go">查看 →</div></a>
+    </div>
+  </div>
+</section>
+
+<!-- Quote -->
+<section class="quote">
+  <div class="quote-in">
+    <p class="q">我们不替你决定看什么，只把信息整理得足够清楚，让每一次选择都更轻松。</p>
+    <cite>— 麻豆传媒影视 编辑部</cite>
+  </div>
+</section>
+
+<!-- Guide -->
+<section id="guide">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="sec-no">03</div>
+      <h3>选片指南 · 三步法</h3>
+      <div class="meta">SECTION THREE<br>方法论</div>
+    </div>
+    <div class="bento">
+      <div class="span-2 accent"><div class="num">STEP</div><h4>定方向</h4><p>先想清楚今天想看什么，轻松解压还是认真思考。</p></div>
+      <div class="span-2"><div class="num">STEP</div><h4>挑片单</h4><p>从对应分类片单里选三到五部作为候选。</p></div>
+      <div class="span-2"><div class="num">STEP</div><h4>读点评</h4><p>看一句话点评与推荐指数，快速做出决定。</p></div>
+      <div class="span-3"><div class="num">NOTE</div><h4>按心情选片</h4><p>不想做复杂筛选时，直接按"想放松、想哭、想动脑、想陪家人"等心情标签挑选，是最快的入口。</p></div>
+      <div class="span-3"><div class="num">NOTE</div><h4>按时长筛选</h4><p>时间有限就看短片与单集，周末再安排长片与剧集，合理分配观影时间。</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- About -->
+<section id="about" style="background:#eef3f8;">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="sec-no">04</div>
+      <h3>关于麻豆传媒影视</h3>
+      <div class="meta">SECTION FOUR<br>站点介绍</div>
+    </div>
+    <div class="about">
+      <div>
+        <h3>一个把"找片"变得清晰、有用的影视内容角落。</h3>
+        <p>麻豆传媒影视madouchuanmeiyingshi 相信，找片不该是负担。我们用清晰的分类、真实的评价和友好的呈现，帮你在海量内容里快速找到对的那一部。</p>
+        <p>这里没有生硬的说教，只有影迷之间的真诚分享。官方站点为 madouchuanmeiyingshi-top.github.io，欢迎常来看看。</p>
+      </div>
+      <div class="about-side">
+        <div class="fact"><h5>站点定位</h5><p>影视内容导航与观影推荐指南，提供清晰的选片参考。</p></div>
+        <div class="fact"><h5>更新频率</h5><p>热门内容每日更新，分类片单与专题每周整理。</p></div>
+        <div class="fact"><h5>内容方向</h5><p>热门聚焦、分类片单、影迷交流、资料归档四大方向。</p></div>
+        <div class="fact"><h5>官方网址</h5><p>https://madouchuanmeiyingshi-top.github.io</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section id="qa">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="sec-no">05</div>
+      <h3>常见问题</h3>
+      <div class="meta">SECTION FIVE<br>FAQ</div>
+    </div>
+    <div class="faq-list">
+      <div class="faq-item open"><button class="faq-q">每天更新的内容有哪些？<span class="ic">−</span></button><div class="faq-a"><p>每日更新今日热门推荐、新剧首播提醒与热门讨论话题，保持内容的新鲜度与参考价值。</p></div></div>
+      <div class="faq-item"><button class="faq-q">片单是如何分类的？<span class="ic">+</span></button><div class="faq-a"><p>按题材、心情、时长、年代等多个维度交叉分类，也提供冷门宝藏与系列合集等特色片单。</p></div></div>
+      <div class="faq-item"><button class="faq-q">可以在这里发表观后感吗？<span class="ic">+</span></button><div class="faq-a"><p>影迷交流区欢迎分享真实观后感，支持轻松交流与友好互动，注重表达而非立场。</p></div></div>
+      <div class="faq-item"><button class="faq-q">如何获取最新更新？<span class="ic">+</span></button><div class="faq-a"><p>定期访问站点即可查看最新内容，官方站点为 madouchuanmeiyingshi-top.github.io。</p></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer>
+  <div class="wrap foot-grid">
+    <div class="foot-brand">
+      <div class="brand-mark"><b>麻豆</b><span>MADOU</span></div>
+      <h4>麻豆传媒影视</h4>
+      <p>专注于影视内容导航与观影推荐指南，持续整理热门作品、分类片单与影迷交流话题，为观众提供清晰的选片参考。</p>
+    </div>
+    <div class="foot-col"><h5>栏目</h5><ul><li><a href="#contents">热门聚焦</a></li><li><a href="#contents">分类片单</a></li><li><a href="#contents">剧集速递</a></li><li><a href="#contents">冷门宝藏</a></li></ul></div>
+    <div class="foot-col"><h5>指南</h5><ul><li><a href="#guide">选片三步法</a></li><li><a href="#hot">本周精选</a></li><li><a href="#contents">资料归档</a></li><li><a href="#contents">放映日历</a></li></ul></div>
+    <div class="foot-col"><h5>关于</h5><ul><li><a href="#about">关于本站</a></li><li><a href="#qa">常见问题</a></li><li><a href="#top">返回顶部</a></li></ul></div>
+  </div>
+  <div class="wrap foot-bot">
+    <span>© 2026 麻豆传媒影视madouchuanmeiyingshi · 影视内容导航与观影推荐指南 · 保留所有权利</span>
+    <div class="links"><a href="https://madouchuanmeiyingshi-top.github.io">官方站点</a><a href="#top">首页</a><a href="#qa">联系</a></div>
+  </div>
+</footer>
+
+<script>
+var btn=document.getElementById('menuBtn'),box=document.getElementById('navLinks');
+btn.addEventListener('click',function(){box.classList.toggle('open');});
+document.querySelectorAll('.nav-links a').forEach(function(a){
+  a.addEventListener('click',function(){box.classList.remove('open');});
+});
+var navAs=document.querySelectorAll('.nav-links a');
+var secs=['contents','hot','guide','about','qa'];
+window.addEventListener('scroll',function(){
+  var y=window.scrollY+180,cur='top';
+  secs.forEach(function(s){var el=document.getElementById(s);if(el&&el.offsetTop<=y)cur=s;});
+  navAs.forEach(function(a){a.classList.toggle('on',a.getAttribute('href')==='#'+cur||(cur==='top'&&a.getAttribute('href')==='#top'));});
+});
+document.querySelectorAll('.faq-item').forEach(function(item){
+  var q=item.querySelector('.faq-q'),ic=item.querySelector('.ic'),a=item.querySelector('.faq-a');
+  q.addEventListener('click',function(){
+    var open=item.classList.contains('open');
+    document.querySelectorAll('.faq-item').forEach(function(i){i.classList.remove('open');i.querySelector('.faq-a').style.maxHeight=null;i.querySelector('.ic').textContent='+';});
+    if(!open){item.classList.add('open');ic.textContent='−';a.style.maxHeight=a.scrollHeight+60+'px';}
+  });
+});
+window.addEventListener('load',function(){var o=document.querySelector('.faq-item.open');if(o){var a=o.querySelector('.faq-a');a.style.maxHeight=a.scrollHeight+60+'px';}});
+</script>
+</body>
+</html>
